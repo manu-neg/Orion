@@ -38,3 +38,20 @@ function createDeviceElement(device) {
     deviceElement.textContent = device;
     return deviceElement;
 }
+
+async function getSystemInfo() {
+    console.log("Polling system info...");
+    let request = fetch("/api/systeminfo", {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        }
+    });
+    let response = await request;
+    if (response.ok) {
+        let data = await response.json();
+        console.log("System Info:", data);
+    } else {
+        console.error("Failed to fetch system info");
+    }
+}

@@ -1,8 +1,9 @@
 mod auth;
 mod context;
+mod resource_monitor;
 
 use axum::{
-    routing::post, Json, Router, 
+    routing::{post, get}, Json, Router, 
     http::{StatusCode, Request, Response}, 
     middleware::{from_fn, Next},
     body::Body
@@ -13,7 +14,7 @@ use std::net::SocketAddr;
 use std::path::PathBuf;
 use auth::{claims::{Claims, LoginRequest, LoginResponse, ErrorResponse}, tokens::{create_jwt, validate_credentials}};
 use context::environment::{Environment, Singleton};
-
+use resource_monitor::resource_monitor::ResourceMonitor;
 
 async fn handle_login(Json(payload): Json<LoginRequest>) -> Result<Json<LoginResponse>, ErrorResponse> {
 
@@ -48,7 +49,7 @@ async fn main() {
     .await
     .expect("Failed to load TLS configuration");
 
-
+   
     let static_service: ServeDir = ServeDir::new(routes.clone())
         .append_index_html_on_directories(true);
 
@@ -59,6 +60,7 @@ async fn main() {
     
     let protected_routes = Router::new()
         .fallback_service(static_service)
+        .route("/api/systeminfo", get(ResourceMonitor::get_system_info))
         .layer(from_fn(auth_middleware));
 
     let app = public_routes.merge(protected_routes);
