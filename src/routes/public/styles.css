@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Orbitron:wght@400..900&display=swap');
+
+
+:root {
+    --font-color-main: #0052FF;
+    --font-color-secondary: #002B80;
+    --background-color-main: #ffffff;
+    --background-accent-soft: #dedede;
+}
+
+#root {
+    background-color: var(--background-color-main);
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+#top-bar {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: solid;
+    border-color: var(--background-accent-soft);
+    border-width: 0 0 2px 0;
+    padding: 5px 20px 5px 20px;
+}
+
+.title {
+    font-family: "Orbitron", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--font-color-main);
+}
+
+.content {
+    font-family: "Fira Code", monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--font-color-secondary);
+    padding: 10px
+}
+
+button {
+    font-family: "Fira Code", monospace;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--font-color-main);
+    background-color: transparent;
+    border: 2px solid var(--font-color-main);
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+button:hover {
+    background-color: var(--font-color-main);
+    color: #ffffff;
+}
+
+#device-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.device-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    border-style: solid;
+    border-width: 2px 0 2px 0;
+    border-radius: 0;
+}
+
+.device {
+    font-family: "Fira Code", monospace;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--font-color-main);
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.centered {
+    justify-content: center;
+    align-items: center;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+#login-form {
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+input {
+    font-family: "Fira Code", monospace;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--font-color-secondary);
+    background-color: transparent;
+    border: 2px solid var(--background-accent-soft);
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all 200ms ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--font-color-secondary)
+}
+
+.error-message {
+    font-family: "Fira Code", monospace;
+    font-size: 1rem;
+    font-weight: 500;
+    color: red;
+    margin-top: 1rem;
+    justify-content: center;
+}

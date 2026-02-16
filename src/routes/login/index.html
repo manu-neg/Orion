@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion</title>
+    <link rel="stylesheet" href="/public/styles.css">
+    <script src="/login/login.js" defer></script>
+</head>
+<body id="root">
+    <header>
+        <div id="top-bar">
+            <h1 class="title">Orion</h1>
+        </div>
+    </header>
+    <main class="content">
+        <div class="flex column centered w-full h-full">
+            <h1 class="title">Log in</h1>
+            <form method="post" onsubmit="handleLogin(event)" class="flex column centered" id="login-form">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Log in</button>
+            </form>
+            <div id="error-message" class="error-message"></div>
+
+        </div>
+    </main>
+</body>
+</html>
